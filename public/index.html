@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clima</title>    
+    <title>Clima</title>
 </head>
+
 <body>
-    <section class="section-container">
-        <h1 class="display-4">Selecione a cidade que Deseja!</h1>
-        <select id="cityDropdown" class="weather-dropdown" style="width: 100%;">
-            <!-- Options serão preenchidas pelo JavaScript -->
-        </select>
 
-        <div id="clima" class="clima-info mt-2">
-            <!-- Informações do clima serão preenchidas pelo JavaScript -->            
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <h1 class="main-title">Consulte o clima da sua cidade com facilidade!</h1>
         </div>
-
-        <button id="action" class="mt-3 btn btn-outline-dark">Ver clima</button>
-        
-    </section>
+        <section class="section-container">
+            <h1 class="display-4">Selecione a cidade que deseja!</h1>
+            <select id="cityDropdown" class="weather-dropdown" style="width: 100%;">
+                <!-- Options serão preenchidas pelo JavaScript -->
+            </select>
+            <div id="clima" class="clima-info mt-2">
+                <!-- Informações do clima serão preenchidas pelo JavaScript -->
+            </div>
+            <button id="action" class="mt-3 btn btn-outline-dark">Ver clima</button>
+        </section>
+    </div>
     <script src="./assets/js/bundle.js"></script>
 </body>
+
 </html>

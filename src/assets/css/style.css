@@ -1,5 +1,5 @@
-/* Reset de margem e padding */
-* {
+ /* Reset de margem e padding */
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -26,10 +26,11 @@ body {
     width: 90%;
 }
 
-h1 {
-    font-size: 40px !important;
-    margin-bottom: 30px !important;
+.main-title {
+    font-size: 36px;
     color: #007bb5; /* Azul mais escuro */
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .weather-dropdown {
