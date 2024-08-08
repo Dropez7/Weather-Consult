@@ -6,3 +6,4 @@ import 'select2'; // Importa o Select2
 import 'select2/dist/css/select2.min.css'; // Importa o CSS do Select2
 import 'bootstrap/dist/css/bootstrap.min.css'; // CSS do Bootstrap
 import 'bootstrap'; // JavaScript do Bootstrap
+import { API_KEY } from "./config.js"; // Importa a chave da API 

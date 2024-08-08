@@ -3011,6 +3011,21 @@ function withinMaxClamp(min, value, max) {
 
 /***/ }),
 
+/***/ "./src/modules/config.js":
+/*!*******************************!*\
+  !*** ./src/modules/config.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   API_KEY: () => (/* binding */ API_KEY)
+/* harmony export */ });
+var API_KEY = '94a0e275a48470d6c689ec601766dfa4';
+
+/***/ }),
+
 /***/ "./src/modules/dropdown.js":
 /*!*********************************!*\
   !*** ./src/modules/dropdown.js ***!
@@ -3055,6 +3070,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var select2_dist_css_select2_min_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! select2/dist/css/select2.min.css */ "./node_modules/select2/dist/css/select2.min.css");
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./config.js */ "./src/modules/config.js");
  // importando o css com aquele loader la no webconfig
  // Isso é um polyfill para o async await no bundle
  // Isso é um polyfill para o async await no bundle
@@ -3063,6 +3079,7 @@ __webpack_require__.r(__webpack_exports__);
  // Importa o CSS do Select2
  // CSS do Bootstrap
  // JavaScript do Bootstrap
+ // Importa a chave da API
 
 /***/ }),
 
@@ -50452,8 +50469,10 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_dropdown_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdown.js */ "./src/modules/dropdown.js");
-/* harmony import */ var _modules_imports__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/imports */ "./src/modules/imports.js");
+/* harmony import */ var _modules_config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/config.js */ "./src/modules/config.js");
+/* harmony import */ var _modules_dropdown_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/dropdown.js */ "./src/modules/dropdown.js");
+/* harmony import */ var _modules_imports__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/imports */ "./src/modules/imports.js");
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -50463,11 +50482,11 @@ document.addEventListener("DOMContentLoaded", function () {
   $(cityDropdown).select2();
 
   // Preenche o dropdown
-  (0,_modules_dropdown_js__WEBPACK_IMPORTED_MODULE_0__.populateDropdown)();
+  (0,_modules_dropdown_js__WEBPACK_IMPORTED_MODULE_1__.populateDropdown)();
   document.getElementById("action").addEventListener("click", function () {
     var climaDiv = document.getElementById("clima");
     climaDiv.innerHTML = "";
-    var apiKey = "deb2755f097ab405dce4ed8843c7e2b3";
+    var apiKey = _modules_config_js__WEBPACK_IMPORTED_MODULE_0__.API_KEY;
     var city = cityDropdown.value;
     if (city === "") {
       alert("Please select a city");

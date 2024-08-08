@@ -1,15 +1,14 @@
-const path = require('path'); 
+const path = require('path');
 module.exports = {
-    mode: 'development', 
-    entry: './src/index.js',  
-    output: { 
-        path: path.resolve(__dirname, 'public', 'assets', 'js'), 
-        filename: 'bundle.js' 
+    mode: 'development',
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'public', 'assets', 'js'),
+        filename: 'bundle.js'
     },
     module: {
-        rules: [
-            {
-                exclude: /node_modules/, 
+        rules: [{
+                exclude: /node_modules/,
                 test: /\.js$/,
                 use: {
                     loader: 'babel-loader',
@@ -20,14 +19,15 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'] 
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
     resolve: {
         alias: {
             'jquery': 'jquery/src/jquery',
-        },
+        }
     },
-    devtool: 'source-map' 
+
+    devtool: 'source-map'
 }

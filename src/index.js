@@ -1,6 +1,5 @@
-import {
-    populateDropdown
-} from './modules/dropdown.js';
+import { API_KEY } from './modules/config.js';
+import { populateDropdown } from './modules/dropdown.js';
 import "./modules/imports";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -16,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let climaDiv = document.getElementById("clima");
         climaDiv.innerHTML = "";
 
-        const apiKey = "deb2755f097ab405dce4ed8843c7e2b3";
+        const apiKey = API_KEY;
         const city = cityDropdown.value;
 
         if (city === "") {
