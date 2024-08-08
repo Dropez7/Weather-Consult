@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelo Webpack</title>    
+    <title>Clima</title>    
 </head>
 <body>
-    <section class="container">
-        <h1>Selecione a Cidade Desejada!</h1>
-        <select id="cityDropdown" style="width: 100%;">
+    <section class="section-container">
+        <h1 class="display-4">Selecione a cidade que Deseja!</h1>
+        <select id="cityDropdown" class="weather-dropdown" style="width: 100%;">
             <!-- Options serão preenchidas pelo JavaScript -->
         </select>
-        <button id="action">Ver clima</button>
-        <div id="clima"></div>
+
+        <div id="clima" class="clima-info mt-2">
+            <!-- Informações do clima serão preenchidas pelo JavaScript -->            
+        </div>
+
+        <button id="action" class="mt-3 btn btn-outline-dark">Ver clima</button>
+        
     </section>
     <script src="./assets/js/bundle.js"></script>
 </body>

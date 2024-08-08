@@ -1,17 +1,17 @@
-import { populateDropdown } from './modules/dropdown.js';
+import {
+    populateDropdown
+} from './modules/dropdown.js';
 import "./modules/imports";
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const cityDropdown = document.querySelector('#cityDropdown');
-    
+
     // Inicializa o Select2 -- jQuery
-    // Tem outras formas de fazer, mas essa é a mais facil
-    // Não gosto muito de JQuery, mas dada a baixa magnitude do projeto, é aceitável
     $(cityDropdown).select2();
 
     // Preenche o dropdown
     populateDropdown();
-    
+
     document.getElementById("action").addEventListener("click", function () {
         let climaDiv = document.getElementById("clima");
         climaDiv.innerHTML = "";
@@ -29,27 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                let iconDiv = document.createElement("div");
-                let iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-                let climaTipoDiv = document.createElement("div");
-                let sensacaoDiv = document.createElement("div");
-                let temperaturaDiv = document.createElement("div");
-                let humidadeDiv = document.createElement("div");
-                let ventoDiv = document.createElement("div");
-
-                iconDiv.innerHTML = `<img src="${iconUrl}" alt="Weather icon" class="icon-div">`;
-                climaTipoDiv.innerHTML = `Clima: ${capitalizeFirstLetter(data.weather[0].description)}`;
-                sensacaoDiv.innerHTML = `Sensação térmica: ${data.main.feels_like}°C`;
-                temperaturaDiv.innerHTML = `Temperatura: ${data.main.temp}°C`;
-                humidadeDiv.innerHTML = `Humidade: ${data.main.humidity}%`;
-                ventoDiv.innerHTML = `Vento: ${data.wind.speed} m/s`;
-
-                climaDiv.appendChild(iconDiv);
-                climaDiv.appendChild(climaTipoDiv);
-                climaDiv.appendChild(sensacaoDiv);
-                climaDiv.appendChild(temperaturaDiv);
-                climaDiv.appendChild(humidadeDiv);
-                climaDiv.appendChild(ventoDiv);
+                climaDiv.appendChild(TopWeatherExib(data));
+                climaDiv.appendChild(bottomWeatherDescription(data));
+                climaDiv.appendChild(bottomWeatherDetails(data));
             })
             .catch(error => {
                 console.error('Erro ao obter dados do clima:', error);
@@ -57,7 +39,62 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     });
 
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+
 });
+
+// Função para deixar a primeira letra da frase maiuscula
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Função para adicionar a parte de cima da exibição do clima
+function TopWeatherExib(data) {
+    let divRow = document.createElement("div");
+    divRow.classList.add("row", "align-items-center");
+
+    let divColTemp = document.createElement("div");
+    divColTemp.classList.add("col-md-6", "temp-col");
+    divColTemp.innerHTML = `${data.main.temp}°C`;
+
+    let divColIcon = document.createElement("div");
+    divColIcon.classList.add("col-md-6", "text-center");
+    let imgIcon = document.createElement("img");
+    imgIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    imgIcon.alt = "Weather icon";
+    imgIcon.classList.add("icon-div");
+
+    divColIcon.appendChild(imgIcon);
+    divRow.appendChild(divColTemp);
+    divRow.appendChild(divColIcon);
+
+    return divRow;
+}
+
+// Função para adicionar a descrição do clima
+function bottomWeatherDescription(data) {
+    let divRowDescription = document.createElement("div");
+    divRowDescription.classList.add("row");
+
+    let divColDescription = document.createElement("div");
+    divColDescription.classList.add("col-md-12", "desc-col");
+    divColDescription.innerHTML = `Clima: ${capitalizeFirstLetter(data.weather[0].description)}`;
+
+    divRowDescription.appendChild(divColDescription);
+    return divRowDescription;
+}
+
+// Função para adicionar os detalhes do clima
+function bottomWeatherDetails(data) {
+    let divRow = document.createElement("div");
+    divRow.classList.add("row");
+
+    let divColDetails = document.createElement("div");
+    divColDetails.classList.add("col-md-12", "details-col");
+
+    divColDetails.innerHTML = `Sensação térmica: ${data.main.feels_like}°C<br>
+                               Humidade: ${data.main.humidity}%<br>
+                               Vento: ${data.wind.speed} m/s`;
+
+    divRow.appendChild(divColDetails);
+    return divRow;
+}

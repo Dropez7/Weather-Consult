@@ -1,3 +1,10 @@
+/* Reset de margem e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -9,14 +16,69 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.container {
+.section-container {
     text-align: center;
-    /* background-color: #343957;*/
     background-color: rgba(255, 255, 255, 0.9);    
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 500px !important;
-    width: 700px !important;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+}
 
+h1 {
+    font-size: 40px !important;
+    margin-bottom: 30px !important;
+    color: #007bb5; /* Azul mais escuro */
+}
+
+.weather-dropdown {
+    margin-bottom: 30px !important;
+    background-color: #e3f2fd; /* Azul claro */
+    border: 1px solid #90caf9; /* Azul médio */
+    color: #333;
+}
+
+.btn-outline-dark {
+    border-color: #90caf9; /* Azul médio */
+    color: #007bb5; /* Azul mais escuro */
+}
+
+.btn-outline-dark:hover {
+    background-color: #e3f2fd; /* Azul claro */
+    border-color: #007bb5; /* Azul mais escuro */
+}
+
+.clima-info {
+    background-color: #e3f2fd; /* Azul claro */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    max-width: 100%;
+}
+
+.clima-info .row {
+    margin-bottom: 15px;
+}
+
+.clima-info .icon-div img {
+    width: 200px !important;
+    height: auto !important;    
+    vertical-align: middle;
+}
+
+.clima-info .temp-col {
+    font-size: 48px;
+    font-weight: bold;
+    color: #007bb5; /* Azul mais escuro */
+}
+
+.clima-info .desc-col {
+    font-size: 24px;    
+    color: #66b2ff; /* Azul claro */
+}
+
+.clima-info .details-col {
+    font-size: 16px;
+    color: #80deea; /* Azul muito claro */
 }
