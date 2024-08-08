@@ -2,6 +2,7 @@
 
 Weather Consult é uma aplicação web que permite consultar as condições climáticas atuais para diferentes cidades. Utilizando a API do OpenWeatherMap, o projeto fornece uma interface simples e intuitiva para visualizar dados como temperatura, umidade, sensação térmica e velocidade do vento.
 
+Link para o site no GitHub Pages: https://dropez7.github.io/Weather-Consult/public/
 ## Funcionalidades
 
 - **Consulta Climática:** Informe uma cidade e visualize a temperatura atual, clima, sensação térmica, umidade e velocidade do vento.
